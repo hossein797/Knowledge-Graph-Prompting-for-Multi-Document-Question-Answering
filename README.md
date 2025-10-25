@@ -61,7 +61,7 @@ flowchart TD
 # 1️⃣ Clone the repository
 
 ```
-git@github.com:hossein797/Knowledge-Graph-Prompting-for-Multi-Document-Question-Answering.git
+git clone git@github.com:hossein797/Knowledge-Graph-Prompting-for-Multi-Document-Question-Answering.git
 ```
 
 # 2️⃣Install dependencies
