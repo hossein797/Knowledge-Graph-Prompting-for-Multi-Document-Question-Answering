@@ -46,11 +46,63 @@ The project constructs a **Knowledge Graph (KG)** from multiple documents, then 
 
 ## 🧩 System Architecture
 
-```mermaid
-flowchart TD
-    A[📄 Documents (PDFs)] --> B[🔧 Preprocessing & Parsing]
-    B --> C[🧠 Knowledge Graph Construction]
-    C --> D[📈 Embedding with BGE Model]
-    D --> E[🧭 LLM Traversal Agent]
-    E --> F[🗣️ Answer Generation]
-    F --> G[✅ Final Response]
+flowchart TD  
+    A[📄 Documents (PDFs)] --> B[🔧 Preprocessing & Parsing]  
+    B --> C[🧠 Knowledge Graph Construction]  
+    C --> D[📈 Embedding with BGE Model]  
+    D --> E[🧭 LLM Traversal Agent]  
+    E --> F[🗣️ Answer Generation]  
+    F --> G[✅ Final Response]  
+
+---
+
+## 🧰 Installation
+
+# 1️⃣ Clone the repository
+
+```
+git clone https://github.com/<your-username>/KnowledgeGraphPrompting.git
+```
+
+# 2️⃣Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## 🚀 Usage
+
+# Follow the steps below to run the project correctly:  
+1️⃣ Prepare your documents  
+* Place all your PDF files in a single folder.  
+* In the main script or notebook, replace the path variable with the path to your folder.
+  
+2️⃣ Set your LLM API key  
+* The project uses a large language model (e.g., LLaMA-3.3-70B or OpenAI-compatible API).  
+* Replace the placeholder with your own API key
+
+3️⃣ Run the pipeline  
+```python
+from kgp import GraphBuilder, TraversalAgent
+
+# Build the knowledge graph
+builder = GraphBuilder(pdf_folder)
+kg = builder.build()
+
+# Create the traversal agent
+agent = TraversalAgent(kg, api_key=os.environ["OPENAI_API_KEY"])
+
+# Ask a question
+response = agent.query("What are the main contributions of the KGP method?")
+print("\n✅ Final Answer:\n", response)
+```
+
+✅ The model will:  
+1.Extract and embed all documents  
+2.Build a structured Knowledge Graph  
+3.Traverse relevant nodes guided by LLM reasoning  
+4.Return the synthesized multi-document answer
+
+---
